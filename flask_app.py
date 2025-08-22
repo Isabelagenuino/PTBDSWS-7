@@ -7,31 +7,30 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return '<h1>Hello World!</h1><h2>Disciplina PTBDSWS</h2>'
+    return '''
+    <h1>Avaliação contínua: Aula 030</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/user/Isabela Genuino/PT3033317/IFSP">Identificação</a></li>
+            <li><a href="/contextorequisicao">Contexto da requisição</a></li></ul>'''
 
-@app.route('/user/<name>')
-def hello_user(name):
-    return '<h1>Hello {}!</h1>'.format(name)
+@app.route('/user/<name>/<pt>/<campus>')
+def hello_user(name, pt, campus):
+    return f'''
+    <h1>Avaliação contínua: Aula 030</h1>
+        <h2>Aluno: {name}</h2>
+        <h2>Prontuário: {pt}</h2>
+        <h2>Instituição: {campus}</h2>
+        <p><a href="/">Voltar</a></p>'''
 
 @app.route('/contextorequisicao')
 def contextorequisicao():
-    user_agent = request.headers.get('User-Agent')
-    return '<p>Your browser is {}</p>'.format(user_agent)
-
-@app.route('/codigostatusdiferente')
-def codigostatusdiferente():
-    return '<p>Bad request</p>', 400
-
-@app.route('/objetoreposta')
-def objetoreposta():
-    response = make_response('<h1>This document carries a cookie!</h1>')
-    response.set_cookie('answer','42')
-    return response
-
-@app.route('/redirecionamento')
-def redirecionamento():
-    return redirect('https://ptb.ifsp.edu.br/')
-
-@app.route('/abortar')
-def abortar():
-    abort(404)
+    navegador = request.headers.get('User-Agent')
+    ipPcRemoto = request.remote_addr
+    host = request.host
+    return f'''
+        <h1>Avaliação contínua: Aula 030</h1>
+        <h2>Seu navegador é: {navegador}</h2>
+        <h2>O IP do computador remoto é: {ipPcRemoto}</h2>
+        <h2>O host da aplicação é: {host}</h2>
+        <p><a href="/">Voltar</a></p>'''

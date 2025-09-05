@@ -22,8 +22,8 @@ def userr():
     return render_template('user.html')
 
 @app.route('/rotainexistente')
-def rotainexistente():
-    return render_template('404.html')
+def rotainexistente(e):
+    return render_template('404.html'), 404
 
 @app.route('/user/<nome>/<prontuario>/<instituicao>')
 def identificacao(nome, prontuario, instituicao):

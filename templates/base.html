@@ -4,9 +4,8 @@
 
 {% block head %}
 {{ super() }}
-<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ url_for('static', filename='iconeBrasil.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='iconeBrasil.ico') }}" type="image/x-icon">
 {% endblock %}
 
 {% block navbar %}
@@ -19,11 +18,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Flasky</a>
+            <a class="navbar-brand" href="/">Avaliação contínua: <b>Aula 040</b></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
+                <li><a href="/user/Isabela Genuino/PT3033317/IFSP">Identificação</a></li>
+                <li><a href="/contextorequisicao/Isabela Genuino">Contexto da requisição</a></li>
             </ul>
         </div>
     </div>

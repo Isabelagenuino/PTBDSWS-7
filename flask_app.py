@@ -12,7 +12,7 @@ app = Flask(__name__)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
-app.config['SECRET KEY'] = "Chave forte"
+app.config['SECRET_KEY'] = "Chave forte"
 
 class NameForm(FlaskForm):
     name = StringField('What is your name?', validators = [DataRequired()])

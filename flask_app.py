@@ -21,7 +21,7 @@ class NameForm(FlaskForm):
 @app.route('/', methods=['GET','POST'])
 def index():
     form = NameForm()
-    if form.validade_on_submit():
+    if form.validate_on_submit():
         old_name = session.get('name')
         if old_name is not None and old_name != form.name.data:
             flash('Looks like you have changed your name!')

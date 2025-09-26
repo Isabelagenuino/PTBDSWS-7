@@ -1,23 +1,43 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 
+<style>
+    .scroll {
+      overflow-y: auto;
+    }
+</style>
+
 {% block page_content %}
-<div class="page-header">
-    {% if nome %}
-        <h1>Olá, {{nome}} {{sobrenome}}!</h1>
-        <h3>A sua instituição de ensino é {{instituicao}}</h3>
-        <h3>Está cursando a disciplina de {{disciplina}}</h3>
-        <br>
-        <h4>O IP do computador remoto é: {{ip}}</h4>
-        <h4>O host da aplicação é: {{host}}
-    {% else %}
-        </h4><h1>Olá, Estranho!</h1>
-        <h3>A sua instituição de ensino é {{instituicao}}</h3>
-        <h3>Está cursando a disciplina de {{disciplina}}</h3>
-        <br>
-        <h4>O IP do computador remoto é: {{ip}}</h4>
-        <h4>O host da aplicação é: {{host}}</h4>
+<div class="scroll">
+    <div class="page-header">
+        {% if nome %}
+            <h1>Olá, {{nome}}!</h1>
+        {% else %}
+            <h1>Olá, Stranger!</h1>
+        {% endif %}
+        {% if known %}
+            <p>Feliz em vê-lo novamente!</p>
+        {% else %}
+            <p>Prazer em conhecê-lo!</p>
+        {% endif %}
+    </div>
+    {{ wtf.quick_form(form) }}
+    <h2>Relação de usuários cadastrados</h2>
+    {% if usuarios %}
+        <table class='table'>
+            <thead>
+                <th>Nome do usuário</th>
+                <th>Função</th>
+            </thead>
+            <tbody>
+                {% for i in usuarios %}
+                    <tr>
+                        <td>{{ i.username }}</td>
+                        <td>{{ i.role.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     {% endif %}
 </div>
-{{ wtf.quick_form(form) }}
 {% endblock %}

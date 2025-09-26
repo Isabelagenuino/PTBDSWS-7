@@ -85,8 +85,7 @@ def login():
 
 @app.route('/loginResponse')
 def loginResponse():
-    return render_template('loginResponse.html', usuario = session.get('usu
-ario'))
+    return render_template('loginResponse.html', usuario = session.get('usuario'))
 
 @app.route('/user/<name>')
 def user(name):

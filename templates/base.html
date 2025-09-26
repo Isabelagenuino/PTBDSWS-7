@@ -18,12 +18,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Avaliação contínua: <b>Aula 070.B</b></a>
+            <a class="navbar-brand" href="/">Avaliação contínua: <b>Aula 060</b></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="/login">Login</a></li>
             </ul>
         </div>
     </div>
@@ -39,9 +38,6 @@
         </div>
     {% endfor %}
     {% block page_content %}{% endblock %}
-    <br>
-    <p>The local date and time is {{ moment(momento).format('LLL') }}</p>
-    <p>That was {{ moment(momento).fromNow(refresh=True) }}</p>
 </div>
 {% endblock %}
 
